@@ -14,3 +14,24 @@
 - Clicking the `Start` button redirects to the MainPage (onClick)
 - Clicking the `Calculate` button directs to the ResultingPage (onClick)
 - Clicking the `Recalculate` button directs back to the MainPage (onClick)
+
+# Views
+## StartPage
+- This page only includes a button view
+## MainPage
+- This page includes the following views:
+
+| View | Description |
+| ---- | ----------- |
+| TextView | Header of inputs and page itself |
+| Spinner | Dropdown for interest rate and amortization period |
+| EditText | For princple amount input, set `inputType` to number only |
+| Button | To calculate the final value |
+
+## ResultingPage
+- This page includes the following views:
+
+| View | Description |
+| ---- | ----------- |
+| TextView | One for each section (resultingEMI, principle, interest rate, amortization period, frequency)
+| Button | To go back and recalculate the EMI |
