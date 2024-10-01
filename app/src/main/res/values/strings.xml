@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">EMIProject</string>
     <string name="start">Start</string>
-    <string name="calculator_header">Calculate your Mortgage Payments</string>
+    <string name="calculatorHeader">Calculate your Mortgage Payments</string>
     <string name="principleHeader">Enter Principle Amount</string>
     <string name="calculate">Calculate Now</string>
-    <string name="blank"> </string>
     <string name="interestRateHeader">Enter Interest rate</string>
     <string name="amortizationPeriodHeader">Enter Amortization Period</string>
     <string name="principleError">Please enter a valid principle value</string>
+    <string name="principleInputInfo">Input for Principle Amount</string>
 </resources>

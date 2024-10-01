@@ -43,7 +43,7 @@
         android:backgroundTint="@color/headerBG"
         android:fontFamily="sans-serif-black"
         android:padding="10sp"
-        android:text="@string/calculator_header"
+        android:text="@string/calculatorHeader"
         android:textColor="@android:color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -86,7 +86,11 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.431" />
+        app:layout_constraintVertical_bias="0.431"
+        android:autofillHints="example: 20000"
+        android:contentDescription="@string/principleInputInfo"
+        android:labelFor="@+id/principleAmountHeader"
+        />
 
     <TextView
         android:id="@+id/principleAmountHeader"

@@ -42,15 +42,34 @@ public class MainPage extends AppCompatActivity {
         String[] interestRates = {
                 "3 Year Fixed Rate 4.84%",
                 "5 Year Fixed Rate 4.74%",
-                "1 Year Closed 7.34%",
-                "5 Year Closed Variable Rate 6.14%",
-                "5 Year Open Variable Rate 7.6%"
+                "0.5 Year closed 7.74%",
+                "1 Year Closed 7.74%",
+                "1 Year Open 8%",
+                "2 Year Closed 7.34%",
+                "3 Year Closed 6.94%",
+                "4 Year Closed 6.74%",
+                "5 Year Closed 6.79%",
+                "6 Year Closed 6.99%",
+                "7 Year Closed 7.1%",
+                "10 Year Closed 7.25%"
         };
         ArrayAdapter<String> interestRateAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, interestRates);
         interestRateSpinner.setAdapter(interestRateAdapter);
 
         String[] years = {
-                "10 years", "15 years", "20 years", "25 years", "30 years"
+                "2 years",
+                "3 years",
+                "4 years",
+                "5 years",
+                "6 years",
+                "7 years",
+                "8 years",
+                "9 years",
+                "10 years",
+                "15 years",
+                "20 years",
+                "25 years",
+                "30 years"
         };
         ArrayAdapter<String> amortizationPeriodAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, years);
         amortizationPeriodSpinner.setAdapter(amortizationPeriodAdapter);
@@ -58,9 +77,10 @@ public class MainPage extends AppCompatActivity {
     }
     public void calculateEMI(View view) {
         String principleInput = principleAmount.getText().toString();
+        String principleError = "Please enter a valid principle value";
 
         if (principleInput.isEmpty()) {
-            resultBox.setText("@string/principleError");
+            resultBox.setText(principleError);
         }
 
         String interestRateInput = interestRateSpinner.getSelectedItem().toString();
@@ -77,7 +97,7 @@ public class MainPage extends AppCompatActivity {
 
         DecimalFormat decFormat = new DecimalFormat("#.##");
         String formattedFinalAnswer = decFormat.format(emi);
-
-        resultBox.setText("Your monthly EMI is: $" + formattedFinalAnswer);
+        String result = formattedFinalAnswer + "/month";
+        resultBox.setText(result);
     }
 }
