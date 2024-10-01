@@ -13,6 +13,9 @@
         android:theme="@style/Theme.EMIProject"
         tools:targetApi="31">
         <activity
+            android:name=".ResultingPage"
+            android:exported="false" />
+        <activity
             android:name=".MainPage"
             android:exported="false" />
         <activity
@@ -24,7 +27,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

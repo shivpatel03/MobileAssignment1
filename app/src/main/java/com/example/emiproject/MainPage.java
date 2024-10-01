@@ -13,6 +13,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import java.text.DecimalFormat;
+import android.content.Intent;
 
 public class MainPage extends AppCompatActivity {
 
@@ -91,13 +92,22 @@ public class MainPage extends AppCompatActivity {
         double principle = Double.parseDouble(principleInput);
 
         double monthlyRate = interestRate / 12 / 100;
-        double amortizationMonths = years * 12;
+        int amortizationMonths = years * 12;
 
         double emi = ((principle * monthlyRate * Math.pow((1 + monthlyRate), amortizationMonths))/(Math.pow(1 + monthlyRate, amortizationMonths)) - 1);
 
         DecimalFormat decFormat = new DecimalFormat("#.##");
         String formattedFinalAnswer = decFormat.format(emi);
         String result = formattedFinalAnswer + "/month";
-        resultBox.setText(result);
+
+        String formattedInterestRate = decFormat.format(monthlyRate);
+
+        Intent finalPage = new Intent(MainPage.this, ResultingPage.class);
+        finalPage.putExtra("EMI", result);
+        finalPage.putExtra("Principle", principle);
+        finalPage.putExtra("Interest Rate", formattedInterestRate);
+        finalPage.putExtra("Months of Amortization", amortizationMonths);
+
+        startActivity(finalPage);
     }
 }

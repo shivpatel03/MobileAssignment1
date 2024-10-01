@@ -8,4 +8,5 @@
     <string name="amortizationPeriodHeader">Enter Amortization Period</string>
     <string name="principleError">Please enter a valid principle value</string>
     <string name="principleInputInfo">Input for Principle Amount</string>
+    <string name="calculateAgain">Calculate Again</string>
 </resources>
