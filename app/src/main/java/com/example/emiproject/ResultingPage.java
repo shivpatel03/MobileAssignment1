@@ -47,7 +47,7 @@ public class ResultingPage extends AppCompatActivity {
 
         String formattedEMI = "$" + emi;
         String formattedPrinciple = "Principle: " + principle;
-        String formattedInterestRate = "Interest Rate: " + monthlyRate + "% monthly";
+        String formattedInterestRate = "Interest Rate: " + monthlyRate + "% yearly";
         String formattedAmortizationMonths = "For " + amortizationMonths + " months";
         String formattedFrequency = "Payed " + frequency;
 
