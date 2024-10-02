@@ -79,6 +79,7 @@ public class MainPage extends AppCompatActivity {
         amortizationPeriodSpinner.setAdapter(amortizationPeriodAdapter);
 
     }
+    // function is called when "calculate now" button is pressed (using onClick)
     public void calculateEMI(View view) {
         String principleInput = principleAmount.getText().toString();
         String principleError = "Please enter a valid principle value";
@@ -88,7 +89,7 @@ public class MainPage extends AppCompatActivity {
         }
 
         String interestRateInput = interestRateSpinner.getSelectedItem().toString(); // get the input from the interest rate spinner (dropdown)
-        String amortizationPeriodInput = amortizationPeriodSpinner.getSelectedItem().toString(); // get the input from the amortization period spinner
+        String amortizationPeriodInput = amortizationPeriodSpinner.getSelectedItem().toString(); // get the input from the amortization period spinne
 
         double yearlyInterestRate = interests.get(interestRateInput); // use the hashmap to get the interest rate, where the key is the string selected
         double years = yearsMap.get(amortizationPeriodInput); // use the hashmap to get the years, where the key is the string selected
@@ -98,18 +99,19 @@ public class MainPage extends AppCompatActivity {
         int amortizationMonths = (int)years * 12; // converted to months from years
 
         // calculate the EMI
-        double emi = principle * (monthlyInterestRate * Math.pow(1+monthlyInterestRate, amortizationMonths)) / (Math.pow(1 + monthlyInterestRate, amortizationMonths) - 1);
+        double emi =
+                principle *
+                (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, amortizationMonths)) /
+                (Math.pow(1 + monthlyInterestRate, amortizationMonths) - 1);
 
-        DecimalFormat decFormat = new DecimalFormat("#.##");
-        String formattedFinalAnswer = decFormat.format(emi);
+        DecimalFormat decFormat = new DecimalFormat("#.##"); // create a format with only two decimal points
+        String formattedFinalAnswer = decFormat.format(emi); // format the EMI final answer
         String result = formattedFinalAnswer + "/month";
-
-        String formattedYearlyInterestRate = decFormat.format(yearlyInterestRate);
 
         Intent finalPage = new Intent(MainPage.this, ResultingPage.class);
         finalPage.putExtra("EMI", result);
         finalPage.putExtra("Principle", principle);
-        finalPage.putExtra("Interest Rate", formattedYearlyInterestRate);
+        finalPage.putExtra("Interest Rate", yearlyInterestRate);
         finalPage.putExtra("Months of Amortization", amortizationMonths);
 
         startActivity(finalPage);

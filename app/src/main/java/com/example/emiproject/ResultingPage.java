@@ -41,7 +41,7 @@ public class ResultingPage extends AppCompatActivity {
 
         String emi = getIntent().getStringExtra("EMI");
         double principle = getIntent().getDoubleExtra("Principle", 0.0);
-        String monthlyRate = getIntent().getStringExtra("Interest Rate");
+        double monthlyRate = getIntent().getDoubleExtra("Interest Rate", 0.0);
         int amortizationMonths = getIntent().getIntExtra("Months of Amortization", 0);
         String frequency = "Monthly";
 
