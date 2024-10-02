@@ -14,13 +14,6 @@ import android.content.Intent;
 
 public class ResultingPage extends AppCompatActivity {
 
-    private TextView emiResult;
-    private TextView principleResult;
-    private TextView interestRateResult;
-    private TextView amortizationResult;
-    private TextView frequencyResult;
-    private Button restart;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,12 +25,12 @@ public class ResultingPage extends AppCompatActivity {
             return insets;
         });
 
-        emiResult = findViewById(R.id.resultingEMI);
-        principleResult = findViewById(R.id.principleResult);
-        interestRateResult = findViewById(R.id.interestRateResult);
-        amortizationResult = findViewById(R.id.amortizationPeriodResult);
-        frequencyResult = findViewById(R.id.frequencyResult);
-        restart = findViewById(R.id.restart);
+        TextView emiResult = findViewById(R.id.resultingEMI);
+        TextView principleResult = findViewById(R.id.principleResult);
+        TextView interestRateResult = findViewById(R.id.interestRateResult);
+        TextView amortizationResult = findViewById(R.id.amortizationPeriodResult);
+        TextView frequencyResult = findViewById(R.id.frequencyResult);
+        Button restart = findViewById(R.id.restart);
 
         String emi = getIntent().getStringExtra("EMI");
         double principle = getIntent().getDoubleExtra("Principle", 0.0);
