@@ -13,7 +13,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import java.text.DecimalFormat;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 import android.content.Intent;
 
@@ -24,8 +26,8 @@ public class MainPage extends AppCompatActivity {
     Spinner interestRateSpinner;
     Spinner amortizationPeriodSpinner;
     TextView resultBox;
-    HashMap<String, Double> interests;
-    HashMap<String, Double> yearsMap;
+    LinkedHashMap<String, Double> interests;
+    LinkedHashMap<String, Double> yearsMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +46,10 @@ public class MainPage extends AppCompatActivity {
         amortizationPeriodSpinner = findViewById(R.id.spinnerAmortizationPeriod);
         resultBox = findViewById(R.id.resultBox);
 
-        interests = new HashMap<>();
+        interests = new LinkedHashMap<>();
+        interests.put("0.5 Year closed 7.74%", 7.74);
         interests.put("3 Year Fixed Rate 4.84%", 4.84);
         interests.put("5 Year Fixed Rate 4.74%", 4.74);
-        interests.put("0.5 Year closed 7.74%", 7.74);
         interests.put("1 Year Closed 7.74%", 7.74);
         interests.put("1 Year Open 8%", 8.0);
         interests.put("2 Year Closed 7.34%", 7.34);
@@ -61,7 +63,7 @@ public class MainPage extends AppCompatActivity {
         ArrayAdapter<String> interestRateAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, interests.keySet().toArray(new String[0]));
         interestRateSpinner.setAdapter(interestRateAdapter);
 
-        yearsMap = new HashMap<>();
+        yearsMap = new LinkedHashMap<>();
         yearsMap.put("2 Years", 2.0);
         yearsMap.put("3 Years", 3.0);
         yearsMap.put("4 Years", 4.0);
