@@ -13,8 +13,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import java.text.DecimalFormat;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 import android.content.Intent;
@@ -89,20 +87,17 @@ public class MainPage extends AppCompatActivity {
             resultBox.setText(principleError);
         }
 
-        String interestRateInput = interestRateSpinner.getSelectedItem().toString();
-        String amortizationPeriodInput = amortizationPeriodSpinner.getSelectedItem().toString();
+        String interestRateInput = interestRateSpinner.getSelectedItem().toString(); // get the input from the interest rate spinner (dropdown)
+        String amortizationPeriodInput = amortizationPeriodSpinner.getSelectedItem().toString(); // get the input from the amortization period spinner
 
-        double yearlyInterestRate = interests.get(interestRateInput);
-        double years = yearsMap.get(amortizationPeriodInput);
-        double principle = Double.parseDouble(principleInput);
+        double yearlyInterestRate = interests.get(interestRateInput); // use the hashmap to get the interest rate, where the key is the string selected
+        double years = yearsMap.get(amortizationPeriodInput); // use the hashmap to get the years, where the key is the string selected
+        double principle = Double.parseDouble(principleInput); // get the value of the principle in double format
 
-        double monthlyInterestRate = yearlyInterestRate / 12.0 / 100.0;
-        int amortizationMonths = (int)years * 12;
+        double monthlyInterestRate = yearlyInterestRate / 12.0 / 100.0; // converted to monthly interest rate
+        int amortizationMonths = (int)years * 12; // converted to months from years
 
-        System.out.println("principle: " + principle);
-        System.out.println("monthly " + monthlyInterestRate);
-        System.out.println("amortization months: " + amortizationMonths);
-
+        // calculate the EMI
         double emi = principle * (monthlyInterestRate * Math.pow(1+monthlyInterestRate, amortizationMonths)) / (Math.pow(1 + monthlyInterestRate, amortizationMonths) - 1);
 
         DecimalFormat decFormat = new DecimalFormat("#.##");
@@ -110,7 +105,6 @@ public class MainPage extends AppCompatActivity {
         String result = formattedFinalAnswer + "/month";
 
         String formattedYearlyInterestRate = decFormat.format(yearlyInterestRate);
-        String formattedInterestRate = decFormat.format(monthlyInterestRate);
 
         Intent finalPage = new Intent(MainPage.this, ResultingPage.class);
         finalPage.putExtra("EMI", result);
